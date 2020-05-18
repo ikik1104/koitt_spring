@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	profile="tablet">
+
+	<bean id="server" class="com.javalec.ex.Server">
+		<property name="browser" value="삼성 브라우저"/>
+		<property name="ip" value="211.108.107.2"/>
+	</bean>
+
+</beans>
