@@ -36,4 +36,11 @@ public class LogAop {
 	}
 	
 	
+//	@After("whitin(com.javalec.ex.Worker)")	
+	@After("pointcutMetuod()")
+	public void afterAdvice() {
+		System.out.println("------------------------------------------------");
+		System.out.println("(After) 종료시간 : "+System.currentTimeMillis());
+	}
+	
 }

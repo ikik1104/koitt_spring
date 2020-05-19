@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<aop:aspectj-autoproxy/>
+	<bean id="logaop" class="com.javalec.ex.LogAop"/>
+	
+	<bean id="book" class="com.javalec.ex.Book">
+		<property name="bnum"  value="1"/>
+		<property name="bname"  value="젝과 콩나물"/>
+		<property name="btype"  value="소설"/>
+		<property name="bwriter"  value="김홍익"/>
+	</bean>
+	<bean id="rental" class="com.javalec.ex.Rental">
+		<property name="num" value="1"/>
+		<property name="name" value="홍길동"/>
+		<property name="bname" value="젝과 콩나물"/>
+		<property name="breturn" value="반납"/>
+		<property name="tel" value="010-3038-8888"/>
+	</bean>
+
+</beans>
