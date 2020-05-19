@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	
+	<bean id="logAop" class="com.javalec.ex.LogAop"/>
+	<aop:config >
+		<aop:aspect id="logger" ref="logAop" >
+			<aop:pointcut id="publicM" expression="within(com.javalec.ex.*)" />
+			<aop:around pointcut-ref="publicM" method="loggerAop" />
+		</aop:aspect>
+	</aop:config>
+
+
+	<bean id="studentInfo" class="com.javalec.ex.StudentInfo">
+		<property name="num" value="1"/>
+		<property name="name" value="홍길동"/>
+		<property name="major" value="영문학고"/>
+		<property name="address" value="경기도 시흥시"/>
+		<property name="tel" value="010-3038-8146"/>
+	</bean>
+	<bean id="studentScore" class="com.javalec.ex.StudentScore">
+		<property name="num" value="1"/>
+		<property name="kor" value="40"/>
+		<property name="eng" value="50"/>
+		<property name="math" value="90"/>
+		<property name="total" value="180"/>
+		<property name="avg" value="60"/>
+	</bean>
+	<bean id="bookLoan" class="com.javalec.ex.BookLoan">
+		<property name="num" value="1"/>
+		<property name="b_num" value="b001"/>
+		<property name="b_name" value="어린왕자"/>
+		<property name="b_type" value="소설"/>
+		<property name="loan_date" value="2020/05/01"/>
+		<property name="due_date" value="2020/05/22"/>
+		<property name="overdue_date" value="3"/>
+	</bean>
+
+
+
+</beans>

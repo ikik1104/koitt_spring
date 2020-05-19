@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="logAop" class="com.javalec.ex.LogAop" />
+	<aop:config>
+		<aop:aspect id="aop1" ref="logAop">
+			<aop:pointcut  id="around" expression="within(com.javalec.ex.Board)"/>
+			<aop:around pointcut-ref="around" method="loggerAop"/>
+		</aop:aspect>
+	
+		<aop:aspect id="aop2" ref="logAop">
+			<aop:pointcut  id="after" expression="within(com.javalec.ex.Event)"/>
+			<aop:after pointcut-ref="after" method="afterAop"/>
+		</aop:aspect>
+	
+		<aop:aspect id="aop3" ref="logAop">
+			<aop:pointcut  id="before" expression="within(com.javalec.ex.Join)"/>
+			<aop:before pointcut-ref="before" method="beforeAop"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+	<bean id="board" class="com.javalec.ex.Board">
+		<property name="num" value="1"/>
+		<property name="title" value="안녕하세요"/>
+		<property name="content" value="반갑습니다."/>
+		<property name="date" value="2020/05/19"/>
+		<property name="name" value="김홍익"/>
+	</bean>
+	
+	<bean id="event" class="com.javalec.ex.Event">
+		<property name="num" value="1"/>
+		<property name="title" value="이벤트입니다."/>
+		<property name="start_day" value="2020/05/01"/>
+		<property name="end_day" value="2020/05/22"/>
+	</bean>
+	
+	<bean id="join" class="com.javalec.ex.Join">
+		<property name="num" value="1"/>
+		<property name="id" value="admin"/>
+		<property name="pw" value="1234"/>
+		<property name="name" value="관리자"/>
+		<property name="date" value="2020/05/19"/>
+	</bean>
+
+</beans>
